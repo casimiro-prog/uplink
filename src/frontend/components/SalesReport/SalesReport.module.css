@@ -1,0 +1,293 @@
+.reportContainer {
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+.tabNavigation {
+  display: flex;
+  background: var(--grey-50);
+  border-bottom: 2px solid var(--grey-100);
+}
+
+.tabButton {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--grey-600);
+  transition: var(--transition);
+}
+
+.tabButton:hover {
+  background: var(--grey-100);
+  color: var(--primary-600);
+}
+
+.tabButton.activeTab {
+  background: var(--primary-500);
+  color: var(--white);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+}
+
+.loading p {
+  margin-top: 1rem;
+  color: var(--grey-500);
+}
+
+.noData {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--grey-500);
+}
+
+.noDataIcon {
+  font-size: 4rem;
+  color: var(--grey-300);
+  margin-bottom: 1rem;
+}
+
+.noData h3 {
+  color: var(--grey-600);
+  margin-bottom: 1rem;
+}
+
+.summaryStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--grey-50);
+}
+
+.statCard {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+}
+
+.statIcon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--primary-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-600);
+  font-size: 1.5rem;
+}
+
+.statInfo h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-700);
+}
+
+.statInfo p {
+  margin: 0;
+  color: var(--grey-600);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letterSpacing);
+}
+
+.topProductsList {
+  padding: 2rem;
+}
+
+.listTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-700);
+  font-size: 1.5rem;
+}
+
+.listTitle svg {
+  color: var(--red-medium);
+}
+
+.productsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--grey-50);
+  border-radius: var(--borderRadius);
+  border-left: 4px solid var(--primary-500);
+  transition: var(--transition);
+}
+
+.productItem:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-2);
+  transform: translateX(5px);
+}
+
+.productRank {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 4rem;
+}
+
+.rankNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--grey-600);
+}
+
+.rankNumber.topThree {
+  color: var(--primary-600);
+}
+
+.goldTrophy {
+  color: #ffd700;
+  font-size: 1.25rem;
+}
+
+.silverTrophy {
+  color: #c0c0c0;
+  font-size: 1.25rem;
+}
+
+.bronzeTrophy {
+  color: #cd7f32;
+  font-size: 1.25rem;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productName {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  text-transform: capitalize;
+}
+
+.productStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.quantitySold {
+  color: var(--green-medium);
+  font-weight: 600;
+}
+
+.revenue {
+  color: var(--grey-600);
+  font-size: 0.9rem;
+}
+
+.salesCount {
+  color: var(--grey-500);
+  font-size: 0.85rem;
+}
+
+.productBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--red-medium);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.lastUpdated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--grey-50);
+  color: var(--grey-500);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--grey-100);
+}
+
+@media screen and (max-width: 768px) {
+  .summaryStats {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .topProductsList {
+    padding: 1rem;
+  }
+  
+  .productItem {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .productRank {
+    align-self: flex-start;
+  }
+  
+  .productStats {
+    width: 100%;
+  }
+  
+  .productBadge {
+    align-self: flex-end;
+  }
+  
+  .tabButton {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .productStats {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .productStats span {
+    white-space: nowrap;
+  }
+}

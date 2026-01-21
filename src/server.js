@@ -25,6 +25,11 @@ import {
   removeItemFromWishlistHandler,
   removeWishlistHandler,
 } from './backend/controllers/WishlistController';
+import {
+  recordSaleHandler,
+  getDailySalesReportHandler,
+  getWeeklySalesReportHandler,
+} from './backend/controllers/SalesController';
 import { categories } from './backend/db/categories';
 import { products } from './backend/db/products';
 import { users } from './backend/db/users';
@@ -41,6 +46,7 @@ export function makeServer({ environment = 'development' } = {}) {
       user: Model,
       cart: Model,
       wishlist: Model,
+      sales: Model,
     },
 
     // Runs on the start of the server
@@ -91,6 +97,11 @@ export function makeServer({ environment = 'development' } = {}) {
         removeItemFromWishlistHandler.bind(this)
       );
       this.delete('/user/wishlist', removeWishlistHandler.bind(this));
+
+      // sales routes
+      this.post('/user/sales/record', recordSaleHandler.bind(this));
+      this.get('/sales/daily-report', getDailySalesReportHandler.bind(this));
+      this.get('/sales/weekly-report', getWeeklySalesReportHandler.bind(this));
     },
   });
 }

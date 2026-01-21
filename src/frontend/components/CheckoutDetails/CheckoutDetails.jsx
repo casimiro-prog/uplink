@@ -10,6 +10,7 @@ import { toastHandler, Popper } from '../../utils/utils';
 
 import { useAuthContext } from '../../contexts/AuthContextProvider';
 import { useNavigate } from 'react-router-dom';
+import { recordSaleService } from '../../Services/salesService';
 
 const CheckoutDetails = ({
   timer,
@@ -94,6 +95,20 @@ const CheckoutDetails = ({
           'https://res.cloudinary.com/dtbd1y4en/image/upload/v1685641105/apple-touch-icon_edbdny.png',
 
         handler: async (response) => {
+          // Record the sale in our system
+          const saleData = {
+            products: [...cartFromContext],
+            totalAmount: finalPriceToPay,
+            paymentId: response.razorpay_payment_id,
+            addressId: activeAddressIdFromProps
+          };
+
+          try {
+            await recordSaleService(saleData, tokenFromContext);
+          } catch (error) {
+            console.error('Error recording sale:', error);
+          }
+
           const tempObj = {
             products: [...cartFromContext],
             amount: finalPriceToPay,
